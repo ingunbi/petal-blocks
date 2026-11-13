@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#2a1f4d" />
+    <meta name="description" content="조각을 끌어다 가로·세로 한 줄을 채우면 꽃잎이 팡! 8×8 판에 조각을 놓아 최고 점수에 도전하는 드래그 블록 퍼즐." />
+    <title>꽃잎 블록 — Petal Blocks</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="stage" aria-label="꽃잎 블록 게임">
+        <canvas id="game" tabindex="0" aria-label="꽃잎 블록 게임 화면. 아래 조각을 손가락이나 마우스로 끌어 8×8 판에 놓습니다. 키보드는 1, 2, 3으로 조각을 고르고 방향키로 옮긴 뒤 Enter로 놓습니다."></canvas>
+
+        <div class="hud" aria-hidden="false">
+          <div class="hud-top">
+            <div class="score-block">
+              <span class="score-label">점수</span>
+              <strong id="score" class="score">0</strong>
+              <span class="best-line">최고 <b id="best">0</b></span>
+            </div>
+            <div class="hud-right">
+              <div id="combo" class="chip combo-chip" data-dry="0" title="줄을 이어서 지우면 점수 배수가 올라요" hidden>콤보 ×<b id="combo-n">2</b></div>
+              <button id="pause-button" class="icon-button" type="button" aria-label="일시정지" title="일시정지 (P / Esc)">Ⅱ</button>
+              <button id="sound-button" class="icon-button" type="button" aria-label="소리 켜기" aria-pressed="false" title="소리 켜기 (M)">♪<span class="slash" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <p id="hint" class="hint" hidden>조각을 끌어다 판에 놓아요 <span>가로·세로 한 줄을 채우면 사라져요</span></p>
+        </div>
+
+        <div id="overlay" class="overlay">
+          <section id="intro-panel" class="panel">
+            <p class="eyebrow">DRAG &amp; FILL</p>
+            <h1>꽃잎 블록</h1>
+            <p class="lead">조각을 끌어다 판을 채우세요.<br />한 줄이 차면 꽃잎이 팡 터져요!</p>
+            <ul class="howto">
+              <li><kbd>끌기</kbd><span>아래 조각을 판 위로 끌어서 놓기</span></li>
+              <li><kbd>한 줄</kbd><span>가로·세로가 꽉 차면 사라져요</span></li>
+              <li><kbd>1 2 3</kbd><span>키보드: 조각 고르기 · 방향키 · Enter</span></li>
+            </ul>
+            <div class="theme-picker">
+              <span class="theme-title">꽃밭 고르기</span>
+              <div id="theme-list" class="theme-list" role="group" aria-label="꽃밭 선택"></div>
+              <p id="theme-note" class="theme-note"></p>
+            </div>
+            <button id="start-button" class="primary" type="button">시작하기</button>
+            <p class="micro">줄을 지우면 새 꽃밭이 열려요 · 기록은 이 브라우저에 저장돼요</p>
+          </section>
+
+          <section id="pause-panel" class="panel compact" hidden>
+            <p class="eyebrow">잠깐 멈춤</p>
+            <h2>숨 고르기</h2>
+            <p class="lead">판은 그대로 기다리고 있어요.</p>
+            <button id="resume-button" class="primary" type="button">계속하기</button>
+            <button id="pause-restart-button" class="text" type="button">처음부터 다시</button>
+          </section>
+
+          <section id="result-panel" class="panel compact" hidden>
+            <p class="eyebrow">놓을 곳이 없어요</p>
+            <h2 id="result-title">다음엔 더 멀리!</h2>
+            <div class="result-score" id="result-score">0</div>
+            <div class="result-grid">
+              <div><small>최고 기록</small><strong id="result-best">0</strong></div>
+              <div><small>지운 줄</small><strong id="result-lines">0</strong></div>
+              <div><small>최대 콤보</small><strong id="result-combo">0</strong></div>
+            </div>
+            <p id="result-note" class="lead"></p>
+            <button id="restart-button" class="primary" type="button">한 번 더 <kbd>Enter</kbd></button>
+          </section>
+        </div>
+
+        <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+      </section>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

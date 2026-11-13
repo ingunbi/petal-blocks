@@ -1,0 +1,8 @@
+// Cloudflare Workers 정적 자산 배포 설정입니다. `npm run build`가 만든 dist/를 그대로 제공합니다.
+// 계정 정보·토큰은 저장소에 넣지 않고 `wrangler login` 또는 CLOUDFLARE_API_TOKEN 환경 변수를 사용합니다.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "petal-blocks",
+  "compatibility_date": "2026-11-03",
+  "assets": { "directory": "./dist" }
+}
