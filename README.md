@@ -71,3 +71,9 @@ npm run deploy:cloudflare  # 빌드 후 배포(wrangler login 필요)
 | `src/bot.js` | 테스트 전용 자동 플레이어(화면에서는 쓰지 않음) |
 | `src/rng.js` | 시드로 같은 조각 순서를 만드는 난수 |
 | `src/*.test.js` | 엔진·조각·저장·배치 자동 테스트 |
+
+## 오픈소스 · 기여
+
+[MIT 라이선스](LICENSE)로 공개합니다. 버그 제보와 개선 제안, Pull Request를 환영합니다.
+개발·검사 방법과 변경 범위는 [CONTRIBUTING.md](CONTRIBUTING.md)를 확인하세요.
+개발 의존성에는 각 패키지의 라이선스가 별도로 적용됩니다.
